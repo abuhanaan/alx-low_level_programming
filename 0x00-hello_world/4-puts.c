@@ -1,10 +1,10 @@
 #include <stdio.h>
 
 /**
- * main: prints to the standard output using the puts function
- * Description: Prints out a string
+ * main: Prints out a string
  * Return: 0
  */
+
 
 int main(void)
 {
