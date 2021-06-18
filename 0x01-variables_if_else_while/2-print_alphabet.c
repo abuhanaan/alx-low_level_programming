@@ -5,11 +5,11 @@
  * Return: 0
  */
 
-int main()
+int main(void)
 {
-	for(int x = 'a'; x <= 'z'; x++)
+	for (int x = 'a'; x <= 'z'; x++)
 	{
 		putchar(x);
 	}
-	return 0;
+	return (0);
 }
