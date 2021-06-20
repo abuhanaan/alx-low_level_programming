@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 /**
- * main - all the numbers of base 16 in lowercase, followed by a new line - 0123456789abcdef
+ * main - all the numbers of base 16 in lowercase, followed by a new line
+ * 0123456789abcdef
  * Return: 0
  */
 
