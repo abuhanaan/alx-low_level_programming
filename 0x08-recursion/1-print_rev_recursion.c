@@ -9,11 +9,9 @@
 
 void _print_rev_recursion(char *s)
 {
-	int i, l;
-
-	l = strlen(s);
-	for (i = l - 1; i >= 0; i--)
+	if (*s != '\0')
 	{
-		printf("%c", s[i]);
+		_print_rev_recursion(s + 1);
+		_putchar(*s);
 	}
 }
