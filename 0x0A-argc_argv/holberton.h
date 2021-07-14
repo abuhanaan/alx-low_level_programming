@@ -1,4 +1,4 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int myName(int argc, int *argv[]);
+int isInteger(const char *s);
