@@ -1,32 +1,30 @@
-#include "holberton.h"
 #include <stdlib.h>
-#include <stdio.h>
+#include "holberton.h"
 
 /**
- * _strdup - return a pointer to a newly allocated space in memory
+ * _strdup - returns a pointer to a newly allocated space in memory,
  * which contains a copy of the string given as a parameter.
- * @str: string
- * Return: 0
+ * @str: the string to be copied to another portion of memory.
+ *
+ * Return: a pointer to a newly allocated space in memory
  */
-
 char *_strdup(char *str)
 {
-	int i = 0, size = 0;
-	char *m;
+	char *s;
+	int len = 0, i;
 
-	if (str == NULL)		
+	if (str == NULL)
 		return (NULL);
 
-	for (; str[size] != '\0'; size++)
-		/*+1 on the size puts the end of string character*/
-		m = malloc(size * sizeof(*str) + 1);
+	while (str[len] != '\0')
+		len++;
 
-		if (m == 0)
-			return (NULL);
-		else
-		{
-			for (; i < size; i++)
-				m[i] = str[i];
-		}
-	return (m);
+	s = malloc(sizeof(char) * (len + 1));
+	if (s == NULL)
+		return (NULL);
+
+	for (i = 0; i < len; i++)
+		s[i] = str[i];
+	s[i] = '\0';
+	return (s);
 }
