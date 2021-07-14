@@ -1,51 +1,77 @@
-#include "holberton.h"
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include "holberton.h"
 
 /**
- * argstostr - concatenates all the arguments
- * @ac: input params
- * @av: input params
+ * count_word - helper function to count the number of words in a string
+ * @s: string to evaluate
  *
- * Return: nothing.
+ * Return: number of words
  */
-
-char *argstostr(int ac, char **av)
+int count_word(char *s)
 {
-	int x, j, v = 0;
-	int len = 1;
-	char *str;
+	int flag, c, w;
 
-	if (ac == 0 || av == NULL)
+	flag = 0;
+	w = 0;
+
+	for (c = 0; s[c] != '\0'; c++)
 	{
+		if (s[c] == ' ')
+			flag = 0;
+		else if (flag == 0)
+		{
+			flag = 1;
+			w++;
+		}
+	}
+
+	return (w);
+}
+/**
+ * **strtow - splits a string into words
+ * @str: string to split
+ *
+ * Return: pointer to an array of strings (Success)
+ * or NULL (Error)
+ */
+char **strtow(char *str)
+{
+	char **matrix, *tmp;
+	int i, k = 0, len = 0, words, c = 0, start, end;
+
+	while (*(str + len))
+		len++;
+	words = count_word(str);
+	if (words == 0)
 		return (NULL);
-	}
 
-	for (x = 0; x < ac; x++)
+	matrix = (char **) malloc(sizeof(char *) * (words + 1));
+	if (matrix == NULL)
+		return (NULL);
+
+	for (i = 0; i <= len; i++)
 	{
-		for (j = 0; av[x][j] != '\0'; j++)
+		if (str[i] == ' ' || str[i] == '\0')
 		{
-			len += 1;
-		}			len += 1;
+			if (c)
+			{
+				end = i;
+				tmp = (char *) malloc(sizeof(char) * (c + 1));
+				if (tmp == NULL)
+					return (NULL);
+				while (start < end)
+					*tmp++ = str[start++];
+				*tmp = '\0';
+				matrix[k] = tmp - c;
+				k++;
+				c = 0;
+			}
+		}
+		else if (c++ == 0)
+			start = i;
 	}
-	str = malloc(sizeof(char) * len);
 
-	for (x = 0; x < ac; x++)
-	{
-		for (j = 0; av[x][j] != '\0'; j++)
-		{
-			str[v] = av[x][j];
-			v++;
-		}
-		str[v] = '\0';
+	matrix[k] = NULL;
 
-		if (str != NULL)
-		{
-			return (str);
-		}
-		else
-		{
-			return (NULL);
-		}
-	}
+	return (matrix);
+}
