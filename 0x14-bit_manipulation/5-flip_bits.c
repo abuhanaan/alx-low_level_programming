@@ -24,27 +24,3 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	}
 	return (count);
 }
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-"5-flip_bits.c" [New File]                                                                                    0,0-1         All
-
