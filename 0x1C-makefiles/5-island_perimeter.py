@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-"""Preparation for technical interview..."""
+"""
+Preparation for technical interview.
+"""
 
 
 def island_perimeter(grid):
-    """returns the perimeter of the island described in grid"""
+    """
+    returns the perimeter of the island described in grid
+    """
     width = len(grid[0])
     height = len(grid)
     edges = 0
